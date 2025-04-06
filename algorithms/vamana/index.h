@@ -36,7 +36,6 @@
 #include "parlay/parallel.h"
 #include "parlay/primitives.h"
 #include "parlay/random.h"
-#include "pruning.h"
 
 namespace parlayANN {
 
@@ -57,10 +56,6 @@ struct knn_index {
   knn_index(BuildParams &BP) : BP(BP) {}
 
   indexType get_start() { return start_point; }
-
-  std::pair<parlay::sequence<indexType>, long>
-  aryaMount(indexType p, parlay::sequence<pid> &cand, GraphI &G, PR &Point,
-            double alpha, bool add = true) {}
 
   // robustPrune routine as found in DiskANN paper, with the exception
   // that the new candidate set is added to the field new_nbhs instead
